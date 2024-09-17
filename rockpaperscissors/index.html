@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Rock, Paper, Scissors</title>
-  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <h1>Rock, Paper, Scissors</h1>
 
@@ -15,23 +17,90 @@
     <div id="player1" class="player"></div>
     <div id="player2" class="player"></div>
     <div id="texts">
-      <div id="lose" class="hidden"><h1>
-        You lose
-      </h1></div>
-      <div id="win" class="hidden"><h1>
-        You win
-      </h1></div>
-      <div id="draw" class="hidden"><h1>
-        It's a draw
-      </h1></div>
+      <div id="lose" class="hidden">
+        <h1>You lose</h1>
+      </div>
+      <div id="win" class="hidden">
+        <h1>You win</h1>
+      </div>
+      <div id="draw" class="hidden">
+        <h1>It's a draw</h1>
+      </div>
     </div>
   </div>
 
   <div id="buttons">
-    <button class="rock"></button>
-    <button class="paper"></button>
-    <button class="scissors"></button>
+    <button class="choice rock" data-choice="rock"></button>
+    <button class="choice paper" data-choice="paper"></button>
+    <button class="choice scissors" data-choice="scissors"></button>
   </div>
 
+  <script>
+    let playerChoice = "";
+    let computerChoice = "";
+
+    function handlePlayerChoice(choice) {
+      playerChoice = choice;
+      document.getElementById('buttons').classList.add('disabled');
+      computerChoice = generateComputerChoice();
+      shakeHands();
+      setTimeout(() => {
+        displayChoices();
+        checkResult();
+      }, 1800);
+    }
+
+    function generateComputerChoice() {
+      const choices = ['rock', 'paper', 'scissors'];
+      const randomIndex = Math.floor(Math.random() * choices.length);
+      return choices[randomIndex];
+    }
+
+    function shakeHands() {
+      document.getElementById('player1').classList.add('shake');
+      document.getElementById('player2').classList.add('shake');
+    }
+
+    function displayChoices() {
+      document.getElementById('player1').classList.remove('shake');
+      document.getElementById('player2').classList.remove('shake');
+      document.getElementById('player1').classList.remove('rock', 'paper', 'scissors');
+      document.getElementById('player2').classList.remove('rock', 'paper', 'scissors');
+      document.getElementById('player1').classList.add(playerChoice);
+      document.getElementById('player2').classList.add(computerChoice);
+    }
+
+    function checkResult() {
+      let result = "";
+      if (playerChoice === computerChoice) {
+        result = "draw";
+      } else if (
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        result = "win";
+      } else {
+        result = "lose";
+      }
+      displayResult(result);
+    }
+
+    function displayResult(result) {
+      document.getElementById('win').classList.add('hidden');
+      document.getElementById('lose').classList.add('hidden');
+      document.getElementById('draw').classList.add('hidden');
+      document.getElementById(result).classList.remove('hidden');
+      document.getElementById('buttons').classList.remove('disabled');
+    }
+
+    document.querySelectorAll('.choice').forEach(button => {
+      button.addEventListener('click', function () {
+        handlePlayerChoice(this.getAttribute('data-choice'));
+      });
+    });
+  </script>
+
 </body>
+
 </html>
