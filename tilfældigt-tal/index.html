@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilfældigt Tal</title>
+</head>
+
+<body>
+    <h1>Tilfældige tal generator</h1>
+    <p id="randomNumber"></p>
+
+    <script>
+        function generateRandomNumber(max, querySelector) {
+            const randomNumber = Math.floor(Math.random() * (max + 1)); // Genererer et tal mellem 0 og max
+            console.log(randomNumber); // Logger det i console
+            document.querySelector(querySelector).textContent = randomNumber; // Skriv tallet til HTML ved hjælp af querySelector
+        }
+
+        generateRandomNumber(100, '#randomNumber'); // Kald funktionen med en værdi for max og en querySelector
+    </script>
+</body>
+
+</html>
