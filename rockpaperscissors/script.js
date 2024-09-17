@@ -3,10 +3,8 @@ let computerChoice = ''
 
 function handlePlayerChoice (choice) {
   playerChoice = choice
-  console.log('Player chose: ' + playerChoice)
   document.getElementById('buttons').classList.add('disabled')
   computerChoice = generateComputerChoice()
-  console.log('Computer chose: ' + computerChoice)
   shakeHands()
   setTimeout(() => {
     displayChoices()
