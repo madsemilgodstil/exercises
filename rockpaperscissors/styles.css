@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background-color: #444059;
-  font-family: "Luckiest Guy", cursive;
+  font-family: 'Luckiest Guy', cursive;
   color: #eee;
 }
 
@@ -26,71 +26,61 @@ h1 {
 }
 
 .player {
-  transform: scale(var(--rot), 1);
+  transform: scale(var(--rot),1);
   width: 40vw;
   height: 40vw;
   background-size: 100%;
-  background-image: url("hand_rock.png");
+  background-image: url(hand_rock.png);
 }
 
 .player.rock {
-  background-image: url("hand_rock.png");
+  background-image: url(hand_rock.png);
 }
 
 .player.paper {
-  background-image: url("hand_paper.png");
+  background-image: url(hand_paper.png);
 }
 
 .player.scissors {
-  background-image: url("hand_scissors.png");
+  background-image: url(hand_scissors.png);
 }
 
 .player.shake {
-  background-image: url("hand_rock.png");
+  background-image: url(hand_rock.png);
   transform-origin: left center;
   animation: shake 1.8s ease-in 1 forwards;
 }
 
 @keyframes shake {
   0% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(0deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
   }
   16% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(-40deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
   }
   24% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(5deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
   }
   32% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(0deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
   }
   48% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(-40deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
   }
   56% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(5deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
   }
   64% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(0deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
   }
   80% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(-40deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(-40deg);
   }
   96% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(5deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(5deg);
   }
   100% {
-    transform: scale(var(--rot), 1) translateX(calc((var(--rot) - 1) * 50%))
-      rotate(0deg);
+    transform: scale(var(--rot),1) translateX(calc((var(--rot) - 1) * 50%)) rotate(0deg);
   }
 }
 
@@ -103,8 +93,7 @@ h1 {
 
 #texts h1 {
   color: #ffde53;
-  text-shadow: 4px 4px 1px red, -4px -4px 1px red, 4px -4px 1px red,
-    -4px 4px 1px red;
+  text-shadow: 4px 4px 1px red, -4px -4px 1px red, 4px -4px 1px red, -4px 4px 1px red;
 }
 
 .hidden {
@@ -115,11 +104,10 @@ h1 {
   display: flex;
   justify-content: space-around;
   max-width: 50vw;
-  margin: 20px auto;
 }
 
 #buttons.disabled button {
-  filter: grayscale(100%) brightness(0.75);
+  filter: grayscale(100%) brightness(.75);
 }
 
 #buttons button {
@@ -127,20 +115,17 @@ h1 {
   border-radius: 10vw;
   width: 10vw;
   height: 10vw;
-  transition: filter 0.8s;
-  background-color: transparent;
-  background-position: center;
-  background-repeat: no-repeat;
+  transition: filter .8s;
 }
 
 button.rock {
-  background-image: url("button_rock.png");
+  background-image: url(button_rock.png);
 }
 
 button.paper {
-  background-image: url("button_paper.png");
+  background-image: url(button_paper.png);
 }
 
 button.scissors {
-  background-image: url("button_scissors.png");
+  background-image: url(button_scissors.png);
 }
